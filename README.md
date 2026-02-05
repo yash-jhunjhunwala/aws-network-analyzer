@@ -385,7 +385,7 @@ Primary location covers 81.5% of instances. Multi-region deployment recommended.
     "isolated_vpcs": 38
   },
   "generated_at": "2026-02-05T10:30:00.000000",
-  "version": "4.2.0"
+  "version": "1.0.0"
 }
 ```
 

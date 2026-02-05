@@ -464,7 +464,7 @@ class TestHTMLReport:
         result = {
             "mode": "account",
             "account_id": "123456789012",
-            "version": "4.1.0",
+            "version": "1.0.0",
             "discovery": {
                 "us-east-1": {
                     "vpcs": {
@@ -528,7 +528,7 @@ class TestHTMLReport:
         result = {
             "mode": "account",
             "account_id": "123456789012",
-            "version": "4.1.0",
+            "version": "1.0.0",
             "discovery": {},
             "enhanced_report": {
                 "summary": {
