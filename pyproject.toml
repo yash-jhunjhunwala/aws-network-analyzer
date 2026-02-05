@@ -1,0 +1,101 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aws-network-analyzer"
+version = "1.0.0"
+description = "Multi-Cloud Network Reachability Analyzer - Find optimal deployment locations for scanner VMs across AWS, Azure, and GCP"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.8"
+authors = [
+    {name = "Yash Jhunjhunwala", email = "yash.jhunjhunwala@gmail.com"}
+]
+keywords = [
+    "aws",
+    "azure",
+    "gcp",
+    "multi-cloud",
+    "network",
+    "reachability",
+    "scanner",
+    "vpc",
+    "vnet",
+    "ec2",
+    "infrastructure",
+    "cloud"
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: System :: Networking",
+    "Topic :: System :: Systems Administration",
+    "Topic :: Utilities"
+]
+dependencies = [
+    # AWS
+    "boto3>=1.26.0",
+    "botocore>=1.29.0",
+    # Azure
+    "azure-identity>=1.12.0",
+    "azure-mgmt-compute>=29.0.0",
+    "azure-mgmt-network>=23.0.0",
+    "azure-mgmt-resource>=22.0.0",
+    "azure-mgmt-subscription>=3.1.0",
+    # GCP
+    "google-cloud-compute>=1.11.0",
+    "google-cloud-resource-manager>=1.10.0",
+    "google-auth>=2.17.0"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "flake8>=6.0.0",
+    "mypy>=1.0.0",
+    "moto>=4.0.0"
+]
+
+[project.urls]
+Homepage = "https://github.com/yash-jhunjhunwala/multi-cloud-network-analyzer"
+Documentation = "https://github.com/yash-jhunjhunwala/multi-cloud-network-analyzer#readme"
+Repository = "https://github.com/yash-jhunjhunwala/multi-cloud-network-analyzer.git"
+Issues = "https://github.com/yash-jhunjhunwala/multi-cloud-network-analyzer/issues"
+Changelog = "https://github.com/yash-jhunjhunwala/multi-cloud-network-analyzer/blob/main/CHANGELOG.md"
+
+[project.scripts]
+aws-network-analyzer = "aws_network_analyzer.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+aws_network_analyzer = ["py.typed"]
+
+[tool.black]
+line-length = 100
+target-version = ["py38", "py39", "py310", "py311", "py312"]
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-v --tb=short --import-mode=importlib"
